@@ -16,7 +16,7 @@
   </CommandClass>
   <!-- Set correct max level for COMMAND_CLASS_SWITCH_MULTILEVEL, the dimmer will ignore any commands to set value >99 -->
   <CommandClass id="38">
-    <Value type="byte" genre="user" index="0" label="Level" min="0" max="100" value="0" />
+    <Value type="byte" genre="user" instance="1" index="0" label="Level" units="" min="0" max="99" value="0" />
   </CommandClass>
 </Product>
 
