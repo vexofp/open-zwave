@@ -63,6 +63,7 @@ DISTFILES =	.gitignore \
 	config/dragontech/wd-100.xml \
 	config/duwi/ZWES1000.xml \
 	config/duwi/ZWESJ300.xml \
+	config/enerwave/zwn-sc7.xml \
 	config/eurotronic/eur_stellaz.xml \
 	config/everspring/ad146.xml \
 	config/everspring/ad147.xml \
@@ -100,6 +101,7 @@ DISTFILES =	.gitignore \
 	config/fibaro/fgsd002.xml \
 	config/fibaro/fgss101.xml \
 	config/fibaro/fgwpe.xml \
+	config/fortrezz/mimolite.xml \
 	config/frostdale/fdn2nxx.xml \
 	config/ge/dimmer.xml \
 	config/ge/dimmer_module.xml \
@@ -108,6 +110,7 @@ DISTFILES =	.gitignore \
 	config/greenwave/powernode6.xml \
 	config/homeseer/ezmotionplus.xml \
 	config/homeseer/hsm100.xml \
+	config/homeseer/hsm200.xml \
 	config/homeseer/ztroller.xml \
 	config/honeywell/th8320zw1000.xml \
 	config/horstmann/hrt4zw.xml \
@@ -146,15 +149,19 @@ DISTFILES =	.gitignore \
 	config/popp/123580.xml \
 	config/popp/123601.xml \
 	config/popp/123658.xml \
+	config/popp/POPE009105.xml \
 	config/qees/reto-plugin-switch.xml \
 	config/qubino/ZMNHAA2.xml \
 	config/qubino/ZMNHAD1.xml \
 	config/qubino/ZMNHBA2.xml \
 	config/qubino/ZMNHBD2.xml \
 	config/qubino/ZMNHCA2.xml \
+	config/qubino/ZMNHCD.xml \
 	config/qubino/ZMNHDA2.xml \
+	config/qubino/ZMNHDD1.xml \
 	config/qubino/ZMNHIA2.xml \
 	config/qubino/ZMNHJA2.xml \
+	config/qubino/ZMNHND1.xml \
 	config/rcs/em52-zw.xml \
 	config/rcs/pm12-zw.xml \
 	config/rcs/therm0005.xml \
@@ -171,6 +178,7 @@ DISTFILES =	.gitignore \
 	config/thermofloor/multireg.xml \
 	config/trane/TZEMT400AB32MAA.xml \
 	config/trane/TZEMT400BB32MAA.xml \
+	config/vision/cp3102.xml \
 	config/vision/zd2102.xml \
 	config/vision/zm1601eu.xml \
 	config/vision/zm1602eu.xml \
@@ -183,6 +191,7 @@ DISTFILES =	.gitignore \
 	config/wenzhou/tz65d.xml \
 	config/wenzhou/tz66d.xml \
 	config/wenzhou/tz67.xml \
+	config/wenzhou/tz68.xml \
 	config/wenzhou/tz88.xml \
 	config/widom/UBS104.xml \
 	config/widom/UME304C_S.xml \
