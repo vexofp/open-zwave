@@ -65,6 +65,7 @@ using namespace OpenZWave;
 #include "command_classes/Proprietary.h"
 #include "command_classes/Protection.h"
 #include "command_classes/SceneActivation.h"
+#include "command_classes/SceneControllerConfiguration.h"
 #include "command_classes/Security.h"
 #include "command_classes/SensorAlarm.h"
 #include "command_classes/SensorBinary.h"
@@ -217,6 +218,7 @@ void CommandClasses::RegisterCommandClasses
 	cc.Register( Proprietary::StaticGetCommandClassId(), Proprietary::StaticGetCommandClassName(), Proprietary::Create );
 	cc.Register( Protection::StaticGetCommandClassId(), Protection::StaticGetCommandClassName(), Protection::Create );
 	cc.Register( SceneActivation::StaticGetCommandClassId(), SceneActivation::StaticGetCommandClassName(), SceneActivation::Create );
+	cc.Register( SceneControllerConfiguration::StaticGetCommandClassId(), SceneControllerConfiguration::StaticGetCommandClassName(), SceneControllerConfiguration::Create );
 	cc.Register( Security::StaticGetCommandClassId(), Security::StaticGetCommandClassName(), Security::Create);
 	cc.Register( SensorAlarm::StaticGetCommandClassId(), SensorAlarm::StaticGetCommandClassName(), SensorAlarm::Create );
 	cc.Register( SensorBinary::StaticGetCommandClassId(), SensorBinary::StaticGetCommandClassName(), SensorBinary::Create );

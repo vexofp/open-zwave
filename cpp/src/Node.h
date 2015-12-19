@@ -106,6 +106,7 @@ namespace OpenZWave
 			friend class Version;
 			friend class WakeUp;
 			friend class ZWavePlusInfo;
+			friend class SceneControllerConfiguration;
 
 			//-----------------------------------------------------------------------------
 			// Construction
