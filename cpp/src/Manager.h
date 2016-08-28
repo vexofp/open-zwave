@@ -651,6 +651,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \return A string containing the node's manufacturer ID, or an empty string if the manufactuer
 		 * specific command class is not supported by the device.
 		 * \see GetNodeProductType, GetNodeProductId, GetNodeManufacturerName, GetNodeProductName
+		 * \todo Change the return to uint16 in 2.0 timeframe
 		 */
 		string GetNodeManufacturerId( uint32 const _homeId, uint8 const _nodeId );
 
@@ -666,6 +667,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \return A string containing the node's product type, or an empty string if the manufactuer
 		 * specific command class is not supported by the device.
 		 * \see GetNodeManufacturerId, GetNodeProductId, GetNodeManufacturerName, GetNodeProductName
+		 * \todo Change the return to uint16 in 2.0 timeframe
 		 */
 		string GetNodeProductType( uint32 const _homeId, uint8 const _nodeId );
 
@@ -681,6 +683,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \return A string containing the node's product ID, or an empty string if the manufactuer
 		 * specific command class is not supported by the device.
 		 * \see GetNodeManufacturerId, GetNodeProductType, GetNodeManufacturerName, GetNodeProductName
+		 * \todo Change the return to uint16 in 2.0 timeframe
 		 */
 		string GetNodeProductId( uint32 const _homeId, uint8 const _nodeId );
 
@@ -1122,6 +1125,18 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \see ValueID::GetType, GetValueAsBool, GetValueAsByte, GetValueAsFloat, GetValueAsInt, GetValueAsShort, GetValueAsString, GetValueListSelection, GetValueAsRaw
 		 */
 		bool GetValueListItems( ValueID const& _id, vector<string>* o_value );
+
+		/**
+		 * \brief Gets the list of values from a list value.
+		 * \param _id The unique identifier of the value.
+		 * \param o_value Pointer to a vector of integers that will be filled with list items. The vector will be cleared before the items are added.
+		 * \return true if the list values were obtained.  Returns false if the value is not a ValueID::ValueType_List. The type can be tested with a call to ValueID::GetType.
+		 * \throws OZWException with Type OZWException::OZWEXCEPTION_INVALID_VALUEID if the ValueID is invalid
+		 * \throws OZWException with Type OZWException::OZWEXCEPTION_CANNOT_CONVERT_VALUEID if the Actual Value is off a different type
+		 * \throws OZWException with Type OZWException::OZWEXCEPTION_INVALID_HOMEID if the Driver cannot be found
+		 * \see ValueID::GetType, GetValueAsBool, GetValueAsByte, GetValueAsFloat, GetValueAsInt, GetValueAsShort, GetValueAsString, GetValueListSelection, GetValueAsRaw
+		 */
+		bool GetValueListValues( ValueID const& _id, vector<int32>* o_value );
 
 		/**
 		 * \brief Gets a float value's precision.
@@ -1789,7 +1804,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * The Status of the Node Removal is communicated via Notifications. Specifically, you should
 		 * monitor ControllerCommand Notifications.
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the RemoveNode Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to remove the device
@@ -1806,7 +1821,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * The Status of the Node Removal is communicated via Notifications. Specifically, you should
 		 * monitor ControllerCommand Notifications.
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the RemoveFailedNode Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to remove the device
@@ -1822,7 +1837,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * our list of Failed Nodes, which might be different.
 		 * The Results will be communicated via Notifications. Specifically, you should monitor the ControllerCommand notifications
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the HasNodeFailed Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to test the device
@@ -1836,7 +1851,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \brief Ask a Node to update its Neighbor Tables
 		 * This command will ask a Node to update its Neighbor Tables.
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the RequestNodeNeighborUpdate Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to update the device
@@ -1850,7 +1865,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \brief Ask a Node to update its update its Return Route to the Controller
 		 * This command will ask a Node to update its Return Route to the Controller
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the AssignReturnRoute Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to update the device
@@ -1864,7 +1879,7 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		 * \brief Ask a Node to delete all Return Route.
 		 * This command will ask a Node to delete all its return routes, and will rediscover when needed.
 		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
+		 * Results of the DeleteAllReturnRoutes Command will be send as a Notification with the Notification type as
 		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network where you want to update the device
@@ -1877,9 +1892,6 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		/**
 		 * \brief Send a NIF frame from the Controller to a Node.
 		 * This command send a NIF frame from the Controller to a Node
-		 *
-		 * Results of the AddNode Command will be send as a Notification with the Notification type as
-		 * Notification::Type_ControllerCommand
 		 *
 		 * \param _homeId The HomeID of the Z-Wave network
 		 * \param _nodeId The NodeID of the Node to recieve the NIF

@@ -30,6 +30,8 @@
 
 #ifdef WIN32
 #include "windows/FileOpsImpl.h"	// Platform-specific implementation of a File Operations
+#elif defined WINRT
+#include "winRT/FileOpsImpl.h"	// Platform-specific implementation of a File Operations
 #else
 #include "unix/FileOpsImpl.h"	// Platform-specific implementation of a File Operations
 #endif

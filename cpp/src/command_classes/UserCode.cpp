@@ -252,14 +252,20 @@ bool UserCode::HandleMsg
 		if( ValueRaw* value = static_cast<ValueRaw*>( GetValue( _instance, i ) ) )
 		{
 			uint8 data[UserCodeLength];
-			uint8 size = _length - 4;
+			int8 size = _length - 4;
 			if( size > UserCodeLength )
 			{
 				Log::Write( LogLevel_Warning, GetNodeId(), "User Code length %d is larger then maximum %d", size, UserCodeLength );
 				size = UserCodeLength;
 			}
+			Log::Write( LogLevel_Info, GetNodeId(), "User Code Packet is %d", size );
 			m_userCodesStatus[i] = _data[2];
-			memcpy( data, &_data[3], size );
+			if (size > 0) {
+				memcpy( data, &_data[3], size );
+			} else {
+				size = 1;
+				data[0] = 0;
+			}
 			value->OnValueRefreshed( data, size );
 			value->Release();
 		}

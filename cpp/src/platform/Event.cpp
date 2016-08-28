@@ -30,6 +30,8 @@
 
 #ifdef WIN32
 #include "windows/EventImpl.h"	// Platform-specific implementation of an event
+#elif defined WINRT
+#include "winRT/EventImpl.h"	// Platform-specific implementation of an event
 #else
 #include "unix/EventImpl.h"	// Platform-specific implementation of an event
 #endif

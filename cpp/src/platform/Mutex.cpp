@@ -30,6 +30,8 @@
 
 #ifdef WIN32
 #include "windows/MutexImpl.h"	// Platform-specific implementation of a mutex
+#elif defined WINRT
+#include "winRT/MutexImpl.h"	// Platform-specific implementation of a mutex
 #else
 #include "unix/MutexImpl.h"	// Platform-specific implementation of a mutex
 #endif

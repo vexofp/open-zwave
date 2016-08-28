@@ -9,6 +9,7 @@ DISTFILES =	.gitignore \
 	config/2gig/ct100.xml \
 	config/2gig/ct101.xml \
 	config/2gig/ct30.xml \
+	config/2gig/ct50e.xml \
 	config/BeNext/1poleswitch.xml \
 	config/BeNext/2poleswitch.xml \
 	config/BeNext/AlarmSound.xml \
@@ -17,6 +18,7 @@ DISTFILES =	.gitignore \
 	config/BeNext/EnergySwitch.xml \
 	config/BeNext/HeatingControl.xml \
 	config/BeNext/Molite.xml \
+	config/BeNext/PanicButton.xml \
 	config/BeNext/PluginDimmer.xml \
 	config/BeNext/SceneController.xml \
 	config/BeNext/TagReader.xml \
@@ -27,43 +29,78 @@ DISTFILES =	.gitignore \
 	config/act/zir010.xml \
 	config/act/zrp110.xml \
 	config/act/zrw103.xml \
-	config/aeotec/alms.xml \
-	config/aeotec/doorbell_gen5.xml \
-	config/aeotec/doorwindow.xml \
-	config/aeotec/drycontactsensor.xml \
-	config/aeotec/dsd31.xml \
-	config/aeotec/hdss_gen5.xml \
-	config/aeotec/hem.xml \
-	config/aeotec/hemg2.xml \
-	config/aeotec/keyfob.xml \
-	config/aeotec/keyfob2.xml \
-	config/aeotec/ledbulb.xml \
-	config/aeotec/minimote.xml \
-	config/aeotec/msesv2.xml \
-	config/aeotec/multisensor6.xml \
-	config/aeotec/multisensor_gen5.xml \
-	config/aeotec/panicbtn.xml \
-	config/aeotec/recessed_doorsensor.xml \
-	config/aeotec/recessed_doorsensor_gen5.xml \
-	config/aeotec/sd6.xml \
-	config/aeotec/ses.xml \
-	config/aeotec/ses2.xml \
-	config/aeotec/ss6.xml \
-	config/aeotec/watersensor.xml \
-	config/aeotec/zstickgen5.xml \
+	config/aeotec/dsa03202.xml \
+	config/aeotec/dsa22.xml \
+	config/aeotec/dsa38.xml \
+	config/aeotec/dsb04100.xml \
+	config/aeotec/dsb05.xml \
+	config/aeotec/dsb09104.xml \
+	config/aeotec/dsb28.xml \
+	config/aeotec/dsb29.xml \
+	config/aeotec/dsb45.xml \
+	config/aeotec/dsb54.xml \
+	config/aeotec/dsc06106.xml \
+	config/aeotec/dsc08101.xml \
+	config/aeotec/dsc10.xml \
+	config/aeotec/dsc11.xml \
+	config/aeotec/dsc12104.xml \
+	config/aeotec/dsc13104.xml \
+	config/aeotec/dsc14104.xml \
+	config/aeotec/dsc18103.xml \
+	config/aeotec/dsc19103.xml \
+	config/aeotec/dsc24.xml \
+	config/aeotec/dsc26103.xml \
+	config/aeotec/dsc27103.xml \
+	config/aeotec/dsc35103.xml \
+	config/aeotec/dsd37.xml \
+	config/aeotec/zw056.xml \
+	config/aeotec/zw062.xml \
+	config/aeotec/zw074.xml \
+	config/aeotec/zw075.xml \
+	config/aeotec/zw078.xml \
+	config/aeotec/zw080.xml \
+	config/aeotec/zw088.xml \
+	config/aeotec/zw089.xml \
+	config/aeotec/zw090.xml \
+	config/aeotec/zw095.xml \
+	config/aeotec/zw096.xml \
+	config/aeotec/zw097.xml \
+	config/aeotec/zw098.xml \
+	config/aeotec/zw099.xml \
+	config/aeotec/zw100.xml \
+	config/aeotec/zw112.xml \
+	config/aeotec/zw117.xml \
+	config/aeotec/zw120.xml \
+	config/aeotec/zw121.xml \
+	config/aeotec/zw130.xml \
 	config/assa_abloy/RealLivingCapTouch.xml \
 	config/cooper/RF9505-T.xml \
 	config/cooper/RF9540-N.xml \
 	config/danfoss/living.xml \
+	config/danfoss/rsroom.xml \
 	config/danfoss/z.xml \
 	config/device_classes.xml \
 	config/device_classes.xsd \
 	config/device_configuration.xsd \
+	config/devolo/mt02648.xml \
 	config/dlink/dch-z110.xml \
+	config/dlink/dch-z120.xml \
+	config/dlink/dch-z510.xml \
+	config/domitech/zb22uk.xml \
+	config/domitech/ze27eu.xml \
 	config/dragontech/wd-100.xml \
+	config/duwi/05458.xml \
 	config/duwi/ZWES1000.xml \
 	config/duwi/ZWESJ300.xml \
+	config/duwi/zwfb.xml \
+	config/electronicsolutions/dbmz.xml \
+	config/enerwave/zw15s.xml \
+	config/enerwave/zw20r.xml \
+	config/enerwave/zw20rm.xml \
+	config/enerwave/zw500d.xml \
+	config/enerwave/zwn-bpc.xml \
 	config/enerwave/zwn-sc7.xml \
+	config/eurotronic/eur_cometz.xml \
 	config/eurotronic/eur_stellaz.xml \
 	config/everspring/ad146.xml \
 	config/everspring/ad147.xml \
@@ -71,6 +108,8 @@ DISTFILES =	.gitignore \
 	config/everspring/an158.xml \
 	config/everspring/an179.xml \
 	config/everspring/an180.xml \
+	config/everspring/an181.xml \
+	config/everspring/hac01.xml \
 	config/everspring/hsp02.xml \
 	config/everspring/se812.xml \
 	config/everspring/sf812.xml \
@@ -85,27 +124,40 @@ DISTFILES =	.gitignore \
 	config/evolve/lrm-as.xml \
 	config/evolve/lsm-15.xml \
 	config/evolve/ltm-5.xml \
+	config/fakro/zws12.xml \
+	config/fakro/zws230.xml \
 	config/fibaro/fgbs001.xml \
 	config/fibaro/fgd211.xml \
 	config/fibaro/fgd212.xml \
 	config/fibaro/fgfs101.xml \
+	config/fibaro/fgfs101zw5.xml \
+	config/fibaro/fggc001.xml \
 	config/fibaro/fgk001.xml \
 	config/fibaro/fgms.xml \
+	config/fibaro/fgpb101.xml \
 	config/fibaro/fgr221.xml \
+	config/fibaro/fgr222.xml \
 	config/fibaro/fgrgbwm441.xml \
 	config/fibaro/fgrm222.xml \
 	config/fibaro/fgs211.xml \
 	config/fibaro/fgs212.xml \
+	config/fibaro/fgs213.xml \
 	config/fibaro/fgs221.xml \
 	config/fibaro/fgs222.xml \
+	config/fibaro/fgs223.xml \
 	config/fibaro/fgsd002.xml \
 	config/fibaro/fgss101.xml \
 	config/fibaro/fgwpe.xml \
 	config/fortrezz/mimolite.xml \
+	config/fortrezz/ssa2.xml \
+	config/fortrezz/ssa3.xml \
+	config/fortrezz/wwa02.xml \
 	config/frostdale/fdn2nxx.xml \
+	config/ge/12724-dimmer.xml \
 	config/ge/dimmer.xml \
 	config/ge/dimmer_module.xml \
 	config/ge/relay.xml \
+	config/ge/receptacle.xml \
 	config/greenwave/powernode1.xml \
 	config/greenwave/powernode6.xml \
 	config/homeseer/ezmotionplus.xml \
@@ -113,14 +165,22 @@ DISTFILES =	.gitignore \
 	config/homeseer/hsm200.xml \
 	config/homeseer/ztroller.xml \
 	config/honeywell/th8320zw1000.xml \
+	config/horstmann/asrzw.xml \
 	config/horstmann/hrt4zw.xml \
+	config/horstmann/scsc17.xml \
+	config/horstmann/ses302.xml \
+	config/horstmann/ses303.xml \
+	config/horstmann/sir321.xml \
+	config/horstmann/srt323.xml \
 	config/intermatic/ca8900.xml \
 	config/iris/rangeextender.xml \
+	config/kwikset/smartcode.xml \
 	config/leviton/rzi10.xml \
 	config/leviton/vrcpg.xml \
 	config/leviton/vrf01.xml \
 	config/leviton/vri06.xml \
 	config/leviton/vri10.xml \
+	config/linear/LB60Z-1.xml \
 	config/linear/PD300Z-2.xml \
 	config/linear/WD500Z-1.xml \
 	config/manufacturer_specific.xml \
@@ -131,63 +191,101 @@ DISTFILES =	.gitignore \
 	config/mcohome/mhs411.xml \
 	config/mcohome/mhs412.xml \
 	config/mcohome/mhs513.xml \
+	config/merten/507801.xml \
 	config/merten/50x5xx.xml \
+	config/nexia/db100z.xml \
 	config/nodon/asp3100SmartPlug.xml \
 	config/nodon/crc3100OctanRemote.xml \
+	config/nodon/crc360xSofremote.xml \
 	config/nodon/cws3101wallswitch.xml \
+	config/northq/nq9021.xml \
+	config/northq/nq9121.xml \
 	config/northq/nq92021.xml \
 	config/options.xml \
 	config/options.xsd \
+	config/philio/pan03.xml \
 	config/philio/pan04.xml \
+	config/philio/pan08.xml \
+	config/philio/phpat02.xml \
+	config/philio/phpsg01.xml \
+	config/philio/pse02.xml \
 	config/philio/psm02.xml \
+	config/philio/psr04.xml \
 	config/philio/pst02-1c.xml \
 	config/philio/pst02-b.xml \
 	config/philio/pst02.xml \
 	config/polycontrol/doorlock.xml \
 	config/polycontrol/keypad.xml \
 	config/polycontrol/polylock.xml \
+	config/popp/009105.xml \
+	config/popp/009303.xml \
 	config/popp/123580.xml \
 	config/popp/123601.xml \
 	config/popp/123658.xml \
-	config/popp/POPE009105.xml \
+	config/popp/smoke-detector.xml \
+	config/popp/solar-siren.xml \
+	config/popp/zweather.xml \
+	config/qees/reto-dimmer-plus.xml \
 	config/qees/reto-plugin-switch.xml \
 	config/qubino/ZMNHAA2.xml \
-	config/qubino/ZMNHAD1.xml \
+	config/qubino/ZMNHADx.xml \
 	config/qubino/ZMNHBA2.xml \
-	config/qubino/ZMNHBD2.xml \
+	config/qubino/ZMNHBDx.xml \
 	config/qubino/ZMNHCA2.xml \
-	config/qubino/ZMNHCD.xml \
+	config/qubino/ZMNHCDx.xml \
 	config/qubino/ZMNHDA2.xml \
-	config/qubino/ZMNHDD1.xml \
+	config/qubino/ZMNHDDx.xml \
 	config/qubino/ZMNHIA2.xml \
+	config/qubino/ZMNHIDx.xml \
 	config/qubino/ZMNHJA2.xml \
-	config/qubino/ZMNHND1.xml \
+	config/qubino/ZMNHJD1.xml \
+	config/qubino/ZMNHLAx.xml \
+	config/qubino/ZMNHNDx.xml \
+	config/qubino/ZMNHODx.xml \
+	config/qubino/ZMNHSDx.xml \
+	config/qubino/ZMNHTDx.xml \
+	config/qubino/ZMNHUD1.xml \
+	config/qubino/ZMNHVDx.xml \
+	config/qubino/ZMNHZDx.xml \
 	config/rcs/em52-zw.xml \
 	config/rcs/pm12-zw.xml \
 	config/rcs/therm0005.xml \
 	config/rcs/therm0007.xml \
 	config/rcs/therm0009.xml \
 	config/remotec/zfm-80.xml \
+	config/remotec/zrc-90.xml \
+	config/remotec/zts-110.xml \
 	config/remotec/zurc.xml \
 	config/remotec/zxt-120.xml \
+	config/shenzen_neo/nas-ds01z.xml \
+	config/shenzen_neo/nas-pd01z.xml \
+	config/shenzen_neo/nas-wr01z.xml \
 	config/schlage/BE469NXCEN.xml \
 	config/schlagelink/itemp.xml \
 	config/schlagelink/minikeypad.xml \
+	config/sensative/strips.xml \
+	config/stelpro/stzw402.xml \
 	config/swiid/swiidinter.xml \
 	config/swiid/swiidplug.xml \
-	config/thermofloor/multireg.xml \
+	config/thermofloor/heatit021.xml \
 	config/trane/TZEMT400AB32MAA.xml \
 	config/trane/TZEMT400BB32MAA.xml \
-	config/vision/cp3102.xml \
 	config/vision/zd2102.xml \
+	config/vision/zd2201.xml \
+	config/vision/zg8101.xml \
 	config/vision/zm1601eu.xml \
+	config/vision/zm1601eu5.xml \
 	config/vision/zm1602eu.xml \
+	config/vision/zm1602eu5.xml \
 	config/vision/zp3102.xml \
+	config/vision/zp3111.xml \
 	config/vision/zs5101eu.xml \
 	config/vitrum/vitrumBS.xml \
 	config/waynedalton/WDTC-20.xml \
 	config/wenzhou/sm103.xml \
 	config/wenzhou/tsp01.xml \
+	config/wenzhou/tz55.xml \
+	config/wenzhou/tz56.xml \
 	config/wenzhou/tz65d.xml \
 	config/wenzhou/tz66d.xml \
 	config/wenzhou/tz67.xml \
@@ -200,11 +298,17 @@ DISTFILES =	.gitignore \
 	config/zwave.me/ZME_05431.xml \
 	config/zwave.me/ZME_06433.xml \
 	config/zwave.me/ZME_06436.xml \
+	config/zwave.me/ZME_064381.xml \
 	config/zwave.me/ZME_064435.xml \
+	config/zwave.me/ZME_KFOB-S.xml \
+	config/zwave.me/ZME_RC2.xml \
 	config/zwave.me/ZME_WALLC-S.xml \
 	config/zwave.me/ZME_WCD2.xml \
+	config/zwave.me/ZUno.xml \
 	config/zwave.me/iTemp.xml \
 	config/zwave.me/kfob.xml \
+	config/zwave.me/popp_kfob-c.xml \
+	config/zwave.me/zweather.xml \
 	config/zwcfg.xsd \
 	config/zwscene.xsd \
 	cpp/build/Makefile \
@@ -213,6 +317,11 @@ DISTFILES =	.gitignore \
 	cpp/build/ozw_config.in \
 	cpp/build/sh2ju.sh \
 	cpp/build/support.mk \
+	cpp/build/testconfig.pl \
+	cpp/build/testconfigsuppressions.cfg \
+	cpp/build/winRT/vs2015/OpenZWave.sln \
+	cpp/build/winRT/vs2015/OpenZWave.vcxproj \
+	cpp/build/winRT/vs2015/OpenZWave.vcxproj.filters \
 	cpp/build/windows/GIT-VS-VERSION-GEN.bat \
 	cpp/build/windows/installer/buildall.bat \
 	cpp/build/windows/installer/openzwave.nsi \
@@ -460,6 +569,24 @@ DISTFILES =	.gitignore \
 	cpp/src/platform/unix/TimeStampImpl.h \
 	cpp/src/platform/unix/WaitImpl.cpp \
 	cpp/src/platform/unix/WaitImpl.h \
+	cpp/src/platform/winRT/EventImpl.cpp \
+	cpp/src/platform/winRT/EventImpl.h \
+	cpp/src/platform/winRT/FileOpsImpl.cpp \
+	cpp/src/platform/winRT/FileOpsImpl.h \
+	cpp/src/platform/winRT/HidControllerWinRT.cpp \
+	cpp/src/platform/winRT/HidControllerWinRT.h \
+	cpp/src/platform/winRT/LogImpl.cpp \
+	cpp/src/platform/winRT/LogImpl.h \
+	cpp/src/platform/winRT/MutexImpl.cpp \
+	cpp/src/platform/winRT/MutexImpl.h \
+	cpp/src/platform/winRT/SerialControllerImpl.cpp \
+	cpp/src/platform/winRT/SerialControllerImpl.h \
+	cpp/src/platform/winRT/ThreadImpl.cpp \
+	cpp/src/platform/winRT/ThreadImpl.h \
+	cpp/src/platform/winRT/TimeStampImpl.cpp \
+	cpp/src/platform/winRT/TimeStampImpl.h \
+	cpp/src/platform/winRT/WaitImpl.cpp \
+	cpp/src/platform/winRT/WaitImpl.h \
 	cpp/src/platform/windows/EventImpl.cpp \
 	cpp/src/platform/windows/EventImpl.h \
 	cpp/src/platform/windows/FileOpsImpl.cpp \

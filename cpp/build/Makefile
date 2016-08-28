@@ -36,15 +36,26 @@ endif
 ifeq ($(UNAME),Darwin)
 CFLAGS	+= -c -DDARWIN
 TARCH	+= -arch i386 -arch x86_64
-LDFLAGS += -dynamiclib
+LDFLAGS += -dynamiclib -install_name "$(DESTDIR)/$(instlibdir)/$(SHARED_LIB_NAME)"
 LIBS	+= -framework IOKit -framework CoreFoundation -arch i386 -arch x86_64
 else ifeq ($(UNAME),FreeBSD)
-
-# FreeBSD 10 has native iconv.h; for older, we look in /usr/local, and libiconv must be installed from ports.
-ifeq (,$(wildcard /usr/include/iconv.h))
-CFLAGS += -I/usr/local/include
-endif
 LDFLAGS+= -shared -lusb
+
+# Pre FreeBSD 10.2 we have no native, or "old" native iconv.h (non-posix compliant
+# const modifiers)
+# For these, require libiconv pkg to be installed.
+ifeq ($(shell test $$(uname -U) -ge 1002000; echo $$?),1)
+# <10.2
+ifeq (,$(wildcard /usr/local/include/iconv.h))
+$(error FreeBSD pre 10.2: Please install libiconv from ports)
+else
+# Installed, use it
+CFLAGS += -I/usr/local/include
+# User application *must* use -liconv; we don't do any linking from this file since we only
+# build a library.
+endif
+endif
+# For 10.2 and later, use iconv from base, no extra include path required.
 
 else
 LDFLAGS += -shared -Wl,-soname,libopenzwave.so.$(VERSION)
@@ -80,6 +91,10 @@ else ifeq ($(UNAME),FreeBSD)
 hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/libusb/*.c))
 else
 hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/linux/*.c)) # we do not want the libusb version
+endif
+
+ifeq ($(BITBAKE_ENV),1)
+ar_option := "rc"
 endif
 
 cclasses := $(notdir $(wildcard $(top_srcdir)/cpp/src/command_classes/*.cpp))
@@ -128,7 +143,7 @@ $(LIBDIR)/libopenzwave.a:	$(patsubst %.cpp,$(OBJDIR)/%.o,$(tinyxml)) \
 			$(patsubst %.cpp,$(OBJDIR)/%.o,$(indep)) \
 			$(OBJDIR)/vers.o
 	@echo "Linking Static Library"
-	@$(AR) $@ $+
+	@$(AR) $(ar_option) $@ $+
 	@$(RANLIB) $@
 
 $(LIBDIR)/$(SHARED_LIB_NAME):	$(patsubst %.cpp,$(OBJDIR)/%.o,$(tinyxml)) \
@@ -149,8 +164,8 @@ $(top_builddir)/libopenzwave.pc: $(top_srcdir)/cpp/build/libopenzwave.pc.in $(PK
 		-e 's|[@]prefix@|$(PREFIX)|g' \
 		-e 's|[@]exec_prefix@|$(PREFIX)/bin|g' \
 		-e 's|[@]libdir@|$(instlibdir)|g' \
-		-e 's|[@]includedir@|$(PREFIX)/include/openzwave/|g' \
-                -e 's|[@]sysconfdir@|$(PREFIX)/etc/openzwave/|g' \
+		-e 's|[@]includedir@|$(includedir)/|g' \
+                -e 's|[@]sysconfdir@|$(sysconfdir)/|g' \
                 -e 's|[@]gitversion@|$(GITVERSION)|g' \
                 -e 's|[@]docdir@|$(docdir)/|g' \
 		-e 's|[@]VERSION@|$(VERSION)|g' \
