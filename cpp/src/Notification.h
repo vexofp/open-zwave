@@ -52,6 +52,7 @@ namespace OpenZWave
 		friend class NodeNaming;
 		friend class NoOperation;
 		friend class SceneActivation;
+		friend class Alarm;
 		friend class WakeUp;
 
 	public:
@@ -94,7 +95,8 @@ namespace OpenZWave
 			Type_DriverRemoved,					/**< The Driver is being removed. (either due to Error or by request) Do Not Call Any Driver Related Methods after receiving this call */
 			Type_ControllerCommand,				/**< When Controller Commands are executed, Notifications of Success/Failure etc are communicated via this Notification
 												  * Notification::GetEvent returns Driver::ControllerState and Notification::GetNotification returns Driver::ControllerError if there was a error */
-			Type_NodeReset						/**< The Device has been reset and thus removed from the NodeList in OZW */
+			Type_NodeReset,						/**< The Device has been reset and thus removed from the NodeList in OZW */
+			Type_AlarmEvent 					/**< Alarm event */
 		};
 
 		/**
@@ -148,7 +150,7 @@ namespace OpenZWave
 		 * Get the event value of a notification.  Only valid in Notification::Type_NodeEvent and Notification::Type_ControllerCommand notifications.
 		 * \return the event value.
 		 */
-		uint8 GetEvent()const{ assert((Type_NodeEvent==m_type) || (Type_ControllerCommand == m_type)); return m_event; }
+		uint8 GetEvent()const{ assert((Type_NodeEvent==m_type) || (Type_ControllerCommand == m_type) || (Type_AlarmEvent == m_type)); return m_event; }
 
 		/**
 		 * Get the button id of a notification.  Only valid in Notification::Type_CreateButton, Notification::Type_DeleteButton,
@@ -181,6 +183,18 @@ namespace OpenZWave
 		 */
 		string GetAsString()const;
 
+		/**
+		 * Get the Alarm Type of a notification.  Only valid in Notification::Type_AlarmEvent notifications.
+		 * \return the alarm type.
+		 */
+		uint8 GetAlarmType()const{ assert(Type_AlarmEvent==m_type); return m_byte; }
+
+		/**
+		 * Get the Alarm Value of a notification.  Only valid in Notification::Type_AlarmEvent notifications.
+		 * \return the alarm type.
+		 */
+		uint8 GetAlarmValue()const{ assert(Type_AlarmEvent==m_type); return m_byte2; }
+
 
 	private:
 		Notification( NotificationType _type ): m_type( _type ), m_byte(0), m_event(0) {}
@@ -194,10 +208,11 @@ namespace OpenZWave
 		void SetSceneId( uint8 const _sceneId ){ assert(Type_SceneEvent==m_type); m_byte = _sceneId; }
 		void SetButtonId( uint8 const _buttonId ){ assert(Type_CreateButton==m_type||Type_DeleteButton==m_type||Type_ButtonOn==m_type||Type_ButtonOff==m_type); m_byte = _buttonId; }
 		void SetNotification( uint8 const _noteId ){ assert((Type_Notification==m_type) || (Type_ControllerCommand == m_type)); m_byte = _noteId; }
+		void SetAlarm( uint8 const _alarmType, uint8 const _alarmValue, uint8 const _event = 0 ){ assert(Type_AlarmEvent==m_type); m_byte = _alarmType; m_byte2 = _alarmValue; m_event = _event; }
 
 		NotificationType		m_type;
 		ValueID				m_valueId;
-		uint8				m_byte;
+		uint8				m_byte, m_byte2;
 		uint8				m_event;
 	};
 

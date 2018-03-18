@@ -31,6 +31,7 @@
 #include "Msg.h"
 #include "Node.h"
 #include "Driver.h"
+#include "Notification.h"
 #include "platform/Log.h"
 
 #include "value_classes/ValueByte.h"
@@ -211,9 +212,14 @@ bool Alarm::HandleMsg
 	if (AlarmCmd_Report == (AlarmCmd)_data[0])
 	{
 		// We have received a report from the Z-Wave device
+    
+		Notification* notification = new Notification( Notification::Type_AlarmEvent );
+		notification->SetHomeAndNodeIds( GetHomeId(), GetNodeId() );
+
 		if( GetVersion() == 1 )
 		{
 			Log::Write( LogLevel_Info, GetNodeId(), "Received Alarm report: type=%d, level=%d", _data[1], _data[2] );
+      notification->SetAlarm(_data[1], _data[2]);
 		}
 		else
 		{
@@ -221,7 +227,10 @@ bool Alarm::HandleMsg
 
 			Log::Write( LogLevel_Info, GetNodeId(), "Received Alarm report: type=%d, level=%d, sensorSrcID=%d, type:%s event:%d, status=%d",
 							_data[1], _data[2], _data[3], alarm_type.c_str(), _data[6], _data[4] );
+      notification->SetAlarm(_data[1], _data[2], _data[6]);
 		}
+
+		GetDriver()->QueueNotification( notification );
 
 		ValueByte* value;
 		if( (value = static_cast<ValueByte*>( GetValue( _instance, AlarmIndex_Type ) )) )

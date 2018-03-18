@@ -72,6 +72,7 @@ namespace OpenZWave
 		friend class NodeNaming;
 		friend class NoOperation;
 		friend class SceneActivation;
+		friend class Alarm;
 		friend class WakeUp;
 		friend class Security;
 		friend class Msg;
